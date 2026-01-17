@@ -8,3 +8,4 @@
 *.iter
 /data_processed/
 /runs/
+/results/
