@@ -26,6 +26,7 @@ This project implements a complete pipeline for analyzing traffic videos:
 ## Dataset
 
 - **Source**: UA-DETRAC (University at Albany DETRAC dataset)
+- **Kaggle link**: https://www.kaggle.com/datasets/bratjay/ua-detrac-orig
 - **Classes**: Car, Bus, Van
 - **Training set**: DETRAC-Train-Annotations-XML
 - **Test set**: DETRAC-Test-Annotations-XML
@@ -210,10 +211,10 @@ This project is part of an academic assignment at ENTPE (École Nationale des Tr
 
 ## Authors
 
-- Antoine KARILA-COHEN
-- Alessandro RAMPOLDI
-- Maxime DELPLANQUE
-- Romain ARNAUD
+- ARNAUD Romain
+- DELPLANQUE Maxime
+- KARILA-COHEN Antoine
+- RAMPOLDI Alessandro
 
 ## Acknowledgments
 
