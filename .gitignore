@@ -9,3 +9,9 @@
 /data_processed/
 /runs/
 /results/
+/test_results/
+*.txt
+*.avi
+*.mp4
+*.jpg
+*.png
