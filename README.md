@@ -35,27 +35,29 @@ This project implements a complete pipeline for analyzing traffic videos:
 
 ```
 ICV_project/
-├── data/                           # Raw dataset
+├── data/                           # Raw DETRAC assets (images + XML)
 │   ├── DETRAC-Images/
-│   ├── DETRAC-Train-Annotations-XML/
-│   ├── DETRAC-Test-Annotations-XML/
-│   └── DETRAC-MOT-toolkit/
-├── data_processed/                 # Processed data for training
-│   ├── train/
-│   ├── val/
-│   ├── test/
-│   └── data.yaml
-├── notebooks/                      # Jupyter notebooks
+│   └── DETRAC-Train-Annotations-XML/ DETRAC-Test-Annotations-XML/
+├── data_processed/                 # YOLO-ready splits and configs
+│   ├── data.yaml
+│   └── subset/
+│       ├── data.yaml
+│       ├── train/ images + labels
+│       └── val/   images + labels
+├── notebooks/                      # All experiment notebooks (preprocess, training, testing, demos)
 │   ├── 0. Preprocessing.ipynb
-│   ├── 1. Train and test.ipynb
-│   └── 3. Demo2.ipynb
-├── results/                        # Training results
-│   ├── weights/
-│   │   ├── best.pt
-│   │   └── last.pt
-│   └── traffic_analysis/
-│       └── traffic_analysis_results.json
-└── runs/                          # Training runs
+│   ├── 1. Train.ipynb
+│   ├── 2. Test.ipynb
+│   ├── 3. Demo on test video.ipynb
+├── results/                        # Reports, demo outputs, metrics
+│   ├── traffic_analysis
+│   ├── figures/
+│   ├── metrics_analysis/
+│   └── test_results/
+├── runs/                           # Ultralytics run artifacts
+│   ├── detect/
+│   └── yolov8n_vehicle_detection*/
+└── README.md 
 ```
 
 ## Installation
@@ -113,15 +115,19 @@ Key training parameters:
 
 Analyze traffic videos:
 ```bash
-jupyter notebook "notebooks/3. Demo2.ipynb"
+jupyter notebook "notebooks/3. Demo on test video.ipynb"
 ```
 
 This notebook:
-- Loads the trained model
-- Processes video frame-by-frame
+- Loads the trained weights from runs/
+- Processes source videos frame-by-frame
 - Tracks vehicles with unique IDs
 - Calculates traffic metrics
-- Generates annotated output video
+- Saves annotated video and metrics to results/
+
+### Demo Video Placement
+
+You have to place the demo video (mp4 format) in data-processed/test after having run the first notebook (0. Preprocessing.ipynb). 
 
 ## Key Components
 
